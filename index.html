@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Prompt Modul Ajar Inklusif & Adiwiyata - Royal Gold Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: radial-gradient(circle at 50% 0%, #1a160d 0%, #0d0a06 50%, #050402 100%);
+            background-attachment: fixed;
+            color: #e5e5e5;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .font-serif-luxury {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Luxury Gold Glass Panel */
+        .luxury-panel {
+            background: rgba(20, 17, 12, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 215, 0, 0.15);
+        }
+        
+        .luxury-header {
+            background: rgba(13, 10, 6, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            color: #f7f3e9;
+        }
+
+        /* Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Input Fields with Gold Glow */
+        .input-field {
+            background: rgba(10, 8, 5, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            color: #f7f3e9;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .input-field:focus {
+            background: rgba(15, 12, 8, 0.95);
+            border-color: #ffd700;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 0 3px rgba(255, 215, 0, 0.15);
+            transform: translateY(-1px);
+        }
+
+        select.input-field option {
+            background-color: #12100d;
+            color: #f7f3e9;
+        }
+
+        /* Ambient floating golden glow blobs */
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(30px, -50px) scale(1.1) rotate(10deg); }
+            66% { transform: translate(-20px, 20px) scale(0.9) rotate(-10deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+        .blob {
+            position: fixed;
+            filter: blur(120px);
+            z-index: -2;
+            opacity: 0.15;
+            animation: float 14s infinite ease-in-out;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .blob-gold { top: -10%; left: -10%; width: 550px; height: 550px; background: rgba(212, 175, 55, 0.4); animation-delay: 0s; }
+        .blob-amber { bottom: -10%; right: -10%; width: 500px; height: 500px; background: rgba(180, 130, 20, 0.3); animation-delay: 3s; }
+
+        /* Color bullet indicators */
+        .color-bullet {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px #ffd700;
+        }
+
+        /* Luxury Button */
+        .btn-gold {
+            background: linear-gradient(135deg, #bf953f 0%, #fbf5b7 25%, #aa771c 50%, #fbf5b7 75%, #b38728 100%);
+            color: #12100d;
+            font-weight: 700;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 25px -5px rgba(191, 149, 63, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Toast Animations */
+        .toast-enter { animation: toast-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .toast-exit { animation: toast-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes toast-in {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes toast-out {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(100%); opacity: 0; }
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(10,8,5,0.9); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.3); border-radius: 4px; border: 1px solid rgba(212, 175, 55, 0.1); }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.6); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased relative">
+
+    <div class="blob blob-gold"></div>
+    <div class="blob blob-amber"></div>
+
+    <header class="luxury-header sticky top-0 z-30 shadow-2xl">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-br from-[#bf953f] to-[#aa771c] p-2.5 rounded-xl shadow-lg shadow-amber-500/20 text-slate-950 border border-amber-300/40">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight flex items-center gap-2 gold-gradient-text">
+                        PromptGen Edu
+                        <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 uppercase tracking-widest font-sans">Royal Gold</span>
+                    </h1>
+                    <p class="text-xs text-amber-200/60 font-medium">Modul Ajar Inklusif & Adiwiyata</p>
+                </div>
+            </div>
+            <div class="hidden sm:flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-300 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-4xl py-10 flex-grow relative z-10">
+        
+        <div class="luxury-panel rounded-3xl p-6 md:p-10 mb-8 relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="mb-8 text-center relative z-10">
+                <h2 class="text-2xl md:text-3xl font-extrabold gold-gradient-text tracking-tight mb-2">Penyusun Modul Ajar</h2>
+                <p class="text-sm text-amber-200/70">Lengkapi data di bawah ini untuk menghasilkan kerangka prompt AI berkualitas tinggi.</p>
+            </div>
+            
+            <form id="generatorForm" class="space-y-8 relative z-10">
+                
+                <!-- Identitas Guru & Sekolah Section -->
+                <div class="relative">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-amber-300 mb-4 flex items-center border-b border-amber-500/20 pb-3">
+                        <span class="color-bullet bg-amber-400"></span>
+                        <span class="bg-amber-500/10 p-2 rounded-xl text-amber-300 mr-3 border border-amber-500/20 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </span>
+                        Identitas Sekolah & Guru
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-black/40 p-5 rounded-2xl border border-amber-500/10 backdrop-blur-md">
+                        <div>
+                            <label for="namaGuru" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Nama Guru Penyusun <span class="text-amber-400">*</span></label>
+                            <input type="text" id="namaGuru" value="Fahrudin, S.Pd.I" placeholder="misal: Budi Santoso, S.Pd." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm" required>
+                        </div>
+                        <div>
+                            <label for="nipGuru" class="block text-xs font-semibold text-amber-200/80 mb-1.5">NIP Guru</label>
+                            <input type="text" id="nipGuru" value="198507062023211022" placeholder="Opsional (Isi jika ada)" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="namaSekolah" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Nama Sekolah <span class="text-amber-400">*</span></label>
+                            <input type="text" id="namaSekolah" value="SMKN 30 Jakarta" placeholder="misal: SMKN 30 Jakarta" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm" required>
+                        </div>
+                        <div>
+                            <label for="namaKepsek" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Nama Kepala Sekolah <span class="text-amber-400">*</span></label>
+                            <input type="text" id="namaKepsek" value="Sri Endang Rahayu, M.Pd" placeholder="misal: Dra. Siti Aminah, M.Pd." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm" required>
+                        </div>
+                        <div>
+                            <label for="nipKepsek" class="block text-xs font-semibold text-amber-200/80 mb-1.5">NIP Kepala Sekolah</label>
+                            <input type="text" id="nipKepsek" value="197211271995122001" placeholder="Opsional (Isi jika ada)" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informasi Mata Pelajaran Section -->
+                <div class="relative">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-amber-300 mb-4 flex items-center border-b border-amber-500/20 pb-3">
+                        <span class="color-bullet bg-amber-400"></span>
+                        <span class="bg-amber-500/10 p-2 rounded-xl text-amber-300 mr-3 border border-amber-500/20 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </span>
+                        Informasi Pembelajaran & Inklusi
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-black/40 p-5 rounded-2xl border border-amber-500/10 backdrop-blur-md">
+                        
+                        <!-- Bidang & Konsentrasi Keahlian / Jurusan dengan Opsi Custom -->
+                        <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div>
+                                <label for="bidangKeahlian" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Bidang Keahlian</label>
+                                <input type="text" id="bidangKeahlian" value="Pariwisata, Seni dan Ekonomi Kreatif" class="input-field w-full px-3 py-2.5 rounded-xl outline-none text-xs">
+                            </div>
+                            <div>
+                                <label for="programKeahlian" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Program Keahlian</label>
+                                <input type="text" id="programKeahlian" value="Perhotelan, Kuliner, Busana" class="input-field w-full px-3 py-2.5 rounded-xl outline-none text-xs">
+                            </div>
+                            <div>
+                                <label for="konsentrasiSelect" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Konsentrasi / Jurusan</label>
+                                <select id="konsentrasiSelect" class="input-field w-full px-3 py-2.5 rounded-xl outline-none text-xs cursor-pointer mb-2">
+                                    <option value="Perhotelan, Kuliner, Desain & Produksi Busana" selected>Perhotelan, Kuliner, Busana (Default)</option>
+                                    <option value="Teknik Komputer dan Jaringan (TKJ)">Teknik Komputer & Jaringan (TKJ)</option>
+                                    <option value="Akuntansi dan Keuangan Lembaga (AKL)">Akuntansi & Keuangan Lembaga (AKL)</option>
+                                    <option value="Bisnis Digital & Pemasaran">Bisnis Digital & Pemasaran</option>
+                                    <option value="Custom">Lainnya (Ketik Manual)...</option>
+                                </select>
+                                <input type="text" id="konsentrasiCustom" placeholder="Ketik konsentrasi keahlian..." class="input-field w-full px-3 py-2 rounded-xl outline-none text-xs hidden">
+                            </div>
+                        </div>
+
+                        <!-- PDBK Multi Select / Dropdown -->
+                        <div class="md:col-span-2 bg-gradient-to-r from-amber-950/40 to-yellow-950/40 p-4 rounded-xl border border-amber-500/30">
+                            <label for="jenisPDBK" class="block text-xs font-bold text-amber-300 mb-1.5 flex items-center gap-2">
+                                <span class="color-bullet bg-amber-400 w-2 h-2"></span>
+                                Karakter / Kategori PDBK (Peserta Didik Berkebutuhan Khusus) <span class="text-amber-400">*</span>
+                            </label>
+                            <select id="jenisPDBK" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm cursor-pointer" required>
+                                <option value="Slow Learner (Lamban Belajar)" selected>Lamban Belajar (Slow Learner)</option>
+                                <option value="Tunanetra (Hambatan Penglihatan)">Tunanetra (Hambatan Penglihatan)</option>
+                                <option value="Tunarungu (Hambatan Pendengaran)">Tunarungu (Hambatan Pendengaran)</option>
+                                <option value="Tunagrahita (Hambatan Intelektual)">Tunagrahita (Hambatan Intelektual)</option>
+                                <option value="Tunadaksa (Hambatan Fisik/Motorik)">Tunadaksa (Hambatan Fisik/Motorik)</option>
+                                <option value="Autisme (ASD)">Autisme (ASD)</option>
+                                <option value="ADHD (Gangguan Pemusatan Perhatian)">ADHD (Gangguan Pemusatan Perhatian)</option>
+                                <option value="CIBI (Cerdas Istimewa Berbakat Istimewa)">CIBI (Cerdas Istimewa Berbakat Istimewa)</option>
+                            </select>
+                        </div>
+
+                        <!-- Mata Pelajaran -->
+                        <div>
+                            <label for="mataPelajaran" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Mata Pelajaran <span class="text-amber-400">*</span></label>
+                            <input type="text" id="mataPelajaran" value="Pendidikan Agama dan Budi Pekerti" placeholder="misal: Pendidikan Agama" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm" required>
+                        </div>
+                        
+                        <!-- Fase & Kelas -->
+                        <div class="flex gap-3">
+                            <div class="w-1/3">
+                                <label for="fase" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Fase <span class="text-amber-400">*</span></label>
+                                <select id="fase" class="input-field w-full px-3 py-2.5 rounded-xl outline-none text-sm" required>
+                                    <option value="A">A (1-2)</option>
+                                    <option value="B">B (3-4)</option>
+                                    <option value="C">C (5-6)</option>
+                                    <option value="D">D (7-9)</option>
+                                    <option value="E">E (10)</option>
+                                    <option value="F" selected>F (11-12)</option>
+                                </select>
+                            </div>
+                            <div class="w-2/3">
+                                <label for="kelas" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Kelas <span class="text-amber-400">*</span></label>
+                                <input type="text" id="kelas" value="XI" placeholder="misal: XI" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm" required>
+                            </div>
+                        </div>
+
+                        <!-- Topik/Materi -->
+                        <div class="md:col-span-2">
+                            <label for="topik" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Topik / Materi Utama <span class="text-amber-400">*</span></label>
+                            <input type="text" id="topik" value="Sabar Menghadapi Kehidupan" placeholder="misal: Sabar Menghadapi Kehidupan" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm" required>
+                        </div>
+                        
+                        <!-- Link Google Docs -->
+                        <div class="md:col-span-2">
+                            <label for="linkDocs" class="block text-xs font-semibold text-amber-200/80 mb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                Link Referensi Materi (Opsional)
+                            </label>
+                            <input type="url" id="linkDocs" placeholder="Link Google Docs/Website rujukan materi..." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-xs">
+                        </div>
+
+                        <!-- Model Pembelajaran -->
+                        <div class="md:col-span-2">
+                            <label for="modelPembel" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Model Pembelajaran <span class="text-amber-400">*</span></label>
+                            <select id="modelPembel" class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-sm cursor-pointer" required>
+                                <option value="Rekomendasi AI Sesuai Tema" selected>👑 AI Rekomendasi Sesuai Tema (Terverifikasi)</option>
+                                <option value="Discovery Learning">Discovery Learning</option>
+                                <option value="Problem Based Learning (PBL)">Problem Based Learning (PBL)</option>
+                                <option value="Project Based Learning (PjBL)">Project Based Learning (PjBL)</option>
+                                <option value="Inquiry Learning">Inquiry Learning</option>
+                                <option value="Cooperative Learning">Cooperative Learning</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Komponen Inti Section -->
+                <div class="relative">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-amber-300 mb-4 flex items-center border-b border-amber-500/20 pb-3">
+                        <span class="color-bullet bg-amber-400"></span>
+                        <span class="bg-amber-500/10 p-2 rounded-xl text-amber-300 mr-3 border border-amber-500/20 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </span>
+                        Komponen Inti & Alokasi Waktu
+                    </h3>
+                    <div class="bg-black/40 p-5 rounded-2xl border border-amber-500/10 backdrop-blur-md">
+                        <p class="text-xs text-amber-200/70 mb-4 bg-amber-950/30 p-3 rounded-xl border border-amber-500/20 flex items-center gap-2">
+                            <span class="text-amber-400 font-bold">💡 Tip:</span> Anda dapat mengosongkan kolom di bawah jika ingin AI menyusunnya secara otomatis dan logis sesuai tema Adiwiyata.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label for="cp" class="block text-xs font-semibold text-amber-200/80 mb-1">Capaian Pembelajaran (CP) - <span class="font-normal text-amber-300/40">Opsional</span></label>
+                                <textarea id="cp" rows="2" placeholder="Tuliskan Capaian Pembelajaran..." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-xs resize-y"></textarea>
+                            </div>
+                            <div>
+                                <label for="tp" class="block text-xs font-semibold text-amber-200/80 mb-1">Tujuan Pembelajaran (TP) - <span class="font-normal text-amber-300/40">Opsional</span></label>
+                                <textarea id="tp" rows="2" placeholder="Tuliskan Tujuan Pembelajaran..." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-xs resize-y"></textarea>
+                            </div>
+                            <div>
+                                <label for="atp" class="block text-xs font-semibold text-amber-200/80 mb-1">Alur Tujuan Pembelajaran (ATP) - <span class="font-normal text-amber-300/40">Opsional</span></label>
+                                <textarea id="atp" rows="2" placeholder="Tuliskan ATP jika relevan..." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-xs resize-y"></textarea>
+                            </div>
+                            <div>
+                                <label for="kktp" class="block text-xs font-semibold text-amber-200/80 mb-1">Kriteria Ketercapaian (KKTP) - <span class="font-normal text-amber-300/40">Opsional</span></label>
+                                <textarea id="kktp" rows="2" placeholder="Tuliskan kriteria ketercapaian..." class="input-field w-full px-4 py-2.5 rounded-xl outline-none text-xs resize-y"></textarea>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-black/60 p-4 rounded-xl border border-amber-500/20 shadow-sm">
+                                <div>
+                                    <label for="jumlahPertemuan" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Jumlah Pertemuan <span class="text-amber-400">*</span></label>
+                                    <input type="number" id="jumlahPertemuan" value="3" min="1" max="10" step="1" class="input-field w-full px-4 py-2 rounded-xl outline-none text-center font-bold text-base" required>
+                                </div>
+                                <div>
+                                    <label for="durasiJP" class="block text-xs font-semibold text-amber-200/80 mb-1.5">Durasi per Pertemuan (Menit) <span class="text-amber-400">*</span></label>
+                                    <input type="number" id="durasiJP" value="135" min="30" max="300" step="5" class="input-field w-full px-4 py-2 rounded-xl outline-none text-center font-bold text-base" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-col-reverse sm:flex-row justify-end gap-3 border-t border-amber-500/20">
+                    <button type="button" onclick="document.getElementById('generatorForm').reset();" class="px-6 py-2.5 text-amber-200/80 bg-black/40 hover:bg-black/70 rounded-xl font-semibold text-sm transition-all border border-amber-500/20 shadow-sm focus:outline-none">
+                        Reset Data
+                    </button>
+                    <button type="button" id="generateBtn" class="px-8 py-2.5 btn-gold rounded-xl text-sm transition-all transform hover:-translate-y-0.5 flex justify-center items-center gap-2 focus:outline-none">
+                        <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        Generate Prompt AI
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="hidden opacity-0 transition-opacity duration-700 transform translate-y-4 luxury-panel rounded-3xl overflow-hidden mb-12 shadow-2xl">
+            <div class="bg-black/60 border-b border-amber-500/20 p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h3 class="text-lg font-bold text-amber-300 flex items-center gap-2 font-serif-luxury">
+                        <span class="color-bullet bg-amber-400"></span>
+                        Hasil Prompt Kerangka Modul
+                    </h3>
+                    <p class="text-xs text-amber-200/60 mt-0.5">Salin teks di bawah ini dan lanjutkan ke AI pilihan Anda.</p>
+                </div>
+                <button id="copyBtn" class="w-full md:w-auto flex items-center justify-center gap-2 px-5 py-2.5 btn-gold rounded-xl font-bold text-xs transition-all transform hover:-translate-y-0.5 focus:outline-none">
+                    <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    Salin Teks Prompt
+                </button>
+            </div>
+            
+            <div class="p-0 relative">
+                <pre id="promptOutput" class="whitespace-pre-wrap font-mono text-xs text-amber-100/90 bg-black/80 p-6 max-h-[400px] overflow-y-auto w-full leading-relaxed border-none focus:outline-none"></pre>
+            </div>
+
+            <div id="aiLinksPanel" class="bg-amber-950/30 border-t border-amber-500/20 p-5 hidden">
+                <p class="text-xs font-bold text-amber-200 mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    Teks Tersalin! Lanjutkan Paste di salah satu AI berikut (membuka tab baru agar data form aman):
+                </p>
+                <div class="flex flex-wrap gap-2.5">
+                    <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[110px] text-center px-4 py-2.5 bg-[#10a37f] hover:bg-[#0e906f] text-white rounded-xl font-semibold text-xs transition-colors shadow-sm">ChatGPT</a>
+                    <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[110px] text-center px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl font-semibold text-xs transition-colors shadow-sm">Gemini</a>
+                    <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="flex-1 min-w-[110px] text-center px-4 py-2.5 bg-[#d97757] hover:bg-[#c2684b] text-white rounded-xl font-semibold text-xs transition-colors shadow-sm">Claude</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="luxury-header mt-auto py-6 border-t border-amber-500/20">
+        <div class="container mx-auto px-4 text-center text-amber-200/60 text-xs">
+            <h4 class="text-sm font-bold text-amber-300 mb-1 font-serif-luxury">Dikembangkan oleh: Fahrudin, S.Pd.I</h4>
+            <p class="text-amber-200/50">Sistem Generator Prompt Modul Ajar Kurikulum Merdeka</p>
+            <p class="text-amber-300/40 text-[11px] mt-1">Didesain khusus untuk kurikulum Inklusif (PDBK) & Berwawasan Lingkungan (Adiwiyata).</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 px-5 py-3 rounded-xl shadow-2xl font-bold hidden items-center gap-3 z-50 transition-all text-slate-950 text-xs border border-amber-300/40 bg-gradient-to-r from-amber-400 to-yellow-500">
+        <svg id="toastIcon" class="w-5 h-5 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+        <span id="toastMsg" class="tracking-wide">Tersalin ke clipboard!</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const konsentrasiSelect = document.getElementById('konsentrasiSelect');
+            const konsentrasiCustom = document.getElementById('konsentrasiCustom');
+
+            konsentrasiSelect.addEventListener('change', (e) => {
+                if (e.target.value === 'Custom') {
+                    konsentrasiCustom.classList.remove('hidden');
+                    konsentrasiCustom.focus();
+                } else {
+                    konsentrasiCustom.classList.add('hidden');
+                }
+            });
+
+            const generateBtn = document.getElementById('generateBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const resultSection = document.getElementById('resultSection');
+            const promptOutput = document.getElementById('promptOutput');
+            const toast = document.getElementById('toast');
+            const aiLinksPanel = document.getElementById('aiLinksPanel');
+            
+            generateBtn.addEventListener('click', () => {
+                const namaGuru = document.getElementById('namaGuru').value.trim();
+                const nipGuru = document.getElementById('nipGuru').value.trim();
+                const namaSekolah = document.getElementById('namaSekolah').value.trim();
+                const namaKepsek = document.getElementById('namaKepsek').value.trim();
+                const nipKepsek = document.getElementById('nipKepsek').value.trim();
+
+                const bidangKeahlian = document.getElementById('bidangKeahlian').value.trim();
+                const programKeahlian = document.getElementById('programKeahlian').value.trim();
+                let konsentrasiKeahlian = konsentrasiSelect.value;
+                if (konsentrasiKeahlian === 'Custom') {
+                    konsentrasiKeahlian = konsentrasiCustom.value.trim() || 'Semua Konsentrasi Keahlian';
+                }
+
+                const mataPelajaran = document.getElementById('mataPelajaran').value.trim();
+                const fase = document.getElementById('fase').value;
+                const kelas = document.getElementById('kelas').value.trim();
+                const topik = document.getElementById('topik').value.trim();
+                const linkDocs = document.getElementById('linkDocs').value.trim();
+                const modelPembel = document.getElementById('modelPembel').value;
+                const jenisPDBK = document.getElementById('jenisPDBK').value;
+
+                const cp = document.getElementById('cp').value.trim();
+                const tp = document.getElementById('tp').value.trim();
+                const atp = document.getElementById('atp').value.trim();
+                const kktp = document.getElementById('kktp').value.trim();
+                const jumlahPertemuan = document.getElementById('jumlahPertemuan').value.trim() || 3;
+                const durasiJP = document.getElementById('durasiJP').value.trim() || 135;
+
+                if (!namaGuru || !namaSekolah || !namaKepsek || !mataPelajaran || !fase || !kelas || !topik || !jumlahPertemuan || !durasiJP) {
+                    showToast('Harap isi semua kolom yang wajib (tanda *)!', 'error');
+                    return;
+                }
+
+                const strNipGuru = nipGuru ? `(NIP. ${nipGuru})` : '';
+                const strNipKepsek = nipKepsek ? `(NIP. ${nipKepsek})` : '';
+                const referensiInstruction = linkDocs ? `\nSebagai referensi dan bahan acuan utama penyusunan materi, WAJIB merujuk pada tautan dokumen berikut: ${linkDocs}\n` : '';
+
+                let komponenIntiInstruction = "2. KOMPONEN INTI\n";
+                komponenIntiInstruction += `  - Capaian Pembelajaran (CP): ${cp ? cp : '(Tentukan secara otomatis dan relevan sesuai standar BSKAP)'}\n`;
+                komponenIntiInstruction += `  - Tujuan Pembelajaran (TP): ${tp ? tp : '(Tentukan secara otomatis dan relevan sesuai standar BSKAP)'}\n`;
+                komponenIntiInstruction += `  - Alur Tujuan Pembelajaran (ATP): ${atp ? atp : '(Tentukan secara otomatis jika relevan)'}\n`;
+                komponenIntiInstruction += `  - Kriteria Ketercapaian Tujuan Pembelajaran (KKTP): ${kktp ? kktp : '(Tentukan secara otomatis)'}\n`;
+                komponenIntiInstruction += `  - Tabel Dimensi Profil Pelajar Pancasila: Tentukan secara OTOMATIS dimensi TERBARU yang paling relevan dengan topik "${topik}". WAJIB centang dan sertakan dimensi/elemen yang terkait dengan kepedulian lingkungan hidup (Konteks Adiwiyata).`;
+
+                let metodologiInstruction = "";
+                if (modelPembel === "Rekomendasi AI Sesuai Tema") {
+                    metodologiInstruction = `  - Tabel Model & Pendekatan Pembelajaran: Tentukan secara OTOMATIS Model Pembelajaran yang paling efektif dan relevan untuk materi "${topik}", dipadukan dengan Pendekatan Pembelajaran Mendalam (Deep Learning dengan 3 langkah: Memahami, Mengaplikasikan, Merefleksikan). Pastikan terverifikasi secara akademik sesuai standar BSKAP Kemendikbudristek.`;
+                } else {
+                    metodologiInstruction = `  - Tabel Model & Pendekatan Pembelajaran: Gunakan Model ${modelPembel} dan Pendekatan Pembelajaran Mendalam (Deep Learning dengan 3 langkah: Memahami, Mengaplikasikan, Merefleksikan) yang terverifikasi standar baku.`;
+                }
+
+                const promptText = `Perankan dirimu sebagai seorang Asesor Akademik dan Pengembang Kurikulum Merdeka yang sangat berpengalaman dalam menyusun Modul Ajar inklusif (khususnya untuk PDBK kategori: ${jenisPDBK}) dan berbasis kelestarian lingkungan (Adiwiyata).
+${referensiInstruction}
+Tugasmu adalah membuat sebuah Modul Ajar lengkap untuk mata pelajaran ${mataPelajaran} Fase ${fase} Kelas ${kelas} dengan materi/topik "${topik}".
+
+STANDAR VERIFIKASI & VALIDASI (SANGAT PENTING):
+1. Pastikan seluruh model, metode, dan sintaks pembelajaran terverifikasi mutlak sesuai standar baku pedoman penyusunan Modul Ajar Kurikulum Merdeka dari BSKAP Kemendikbudristek.
+2. Semua komponen dari identitas hingga lampiran terisi penuh, logis, valid secara pedagogik, tidak ada yang terlewat (100% lengkap), serta berkesinambungan mutlak antara Tujuan Pembelajaran dengan Asesmen.
+3. Pastikan nilai-nilai Adiwiyata (cinta lingkungan, kebersihan, pemanfaatan daur ulang) terintegrasi kuat di seluruh bagian. Output WAJIB berupa teks polos murni TANPA menggunakan tag HTML seperti <br>, <b>, atau sejenisnya agar bersih saat disalin ke Google Docs atau Word.
+
+STRUKTUR DAN KOMPONEN MODUL AJAR YANG WAJIB ADA:
+
+1. IDENTITAS MODUL
+  - Bidang Keahlian: ${bidangKeahlian}
+  - Program Keahlian: ${programKeahlian}
+  - Konsentrasi Keahlian: ${konsentrasiKeahlian}
+  - Mata Pelajaran: ${mataPelajaran}
+  - Fase / Kelas: ${fase} / ${kelas}
+  - Nama Penyusun: ${namaGuru} ${strNipGuru}
+
+${komponenIntiInstruction}
+
+3. METODOLOGI DAN LINGKUNGAN
+${metodologiInstruction}
+  - Tabel Lingkungan Pembelajaran (Saran Pengaturan Ruang Kelas, Suasana Belajar, Media & Alat Peraga). Wajib sertakan kolom khusus "Saran/Adaptasi PDBK (${jenisPDBK})" DAN kolom "Aspek Adiwiyata/Lingkungan Hidup" (contoh wajib: pemanfaatan bahan daur ulang untuk alat peraga, meminimalisir kertas/paperless, aksi kebersihan kelas).
+  - Pemanfaatan Digital (Saran Media).
+  - Kemitraan.
+
+4. SINTAKS PEMBELAJARAN
+  - Tabel Langkah Pedagogis dari tahap awal hingga akhir dengan catatan pedagogis (Berkesadaran, Bermakna, Menggembirakan).
+
+5. LANGKAH-LANGKAH PEMBELAJARAN (DETAIL PERTEMUAN)
+  - Buat untuk ${jumlahPertemuan} Pertemuan, masing-masing ${durasiJP} menit.
+  - Berikan judul untuk setiap pertemuan (misalnya: Pertemuan 1: Memahami, dst).
+  - Gunakan tabel Markdown dengan 4 kolom: [Tahap Pembelajaran] | [Kegiatan Guru & Murid] | [Catatan Adaptasi PDBK & Adiwiyata] | [Alokasi Waktu].
+  - Instruksi Khusus: Kolom "Catatan Adaptasi PDBK & Adiwiyata" harus memuat 2 hal: (1) Instruksi spesifik modifikasi kegiatan untuk siswa ${jenisPDBK}, (2) Instruksi penyisipan isu/tema lingkungan ke dalam aktivitas tersebut.
+
+6. ASESMEN
+  - Tabel Asesmen Setiap Kegiatan Inti (Kolom: Pertemuan, Dimensi yang Dinilai, Teknik Asesmen, Instrumen, Waktu Pelaksanaan).
+
+7. LEMBAR PENGESAHAN
+  - Tempat, Tanggal
+  - Layout Tanda Tangan WAJIB Sejajar Samping Kiri dan Kanan:
+    Mengetahui,                                    Menyetujui,
+    Kepala Sekolah                                 Guru Mata Pelajaran
+    
+    ${namaKepsek}                                  ${namaGuru}
+    ${strNipKepsek}                                ${strNipGuru}
+
+8. LAMPIRAN: LEMBAR KERJA PESERTA DIDIK (LKPD)
+  - Buat LKPD terpisah untuk setiap pertemuan (${jumlahPertemuan} LKPD).
+  - Desain LKPD harus ramah untuk siswa ${jenisPDBK}.
+  - Wajib memuat minimal satu tugas, soal, atau refleksi yang mengaitkan materi "${topik}" dengan aksi nyata pelestarian lingkungan hidup/Adiwiyata.
+
+9. LAMPIRAN: RUBRIK PENILAIAN
+  - Buat tabel rubrik penilaian dengan kriteria Sangat Baik (4), Baik (3), Cukup (2), Perlu Bimbingan (1). Sesuaikan dengan aktivitas.
+
+10. LAMPIRAN: BAHAN BACAAN
+  - Sediakan materi komprehensif. Susun rapi terstruktur.
+
+Silakan hasilkan Modul Ajar tersebut sekarang sesuai pedoman di atas!`;
+
+                promptOutput.textContent = promptText;
+                aiLinksPanel.classList.add('hidden');
+                resultSection.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    resultSection.classList.remove('opacity-0', 'translate-y-4');
+                    resultSection.classList.add('opacity-100', 'translate-y-0');
+                    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+                
+                showToast('Prompt berhasil disusun berdasarkan data Anda!', 'success');
+            });
+
+            copyBtn.addEventListener('click', () => {
+                const text = promptOutput.textContent;
+                if (!text) return;
+
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.position = "fixed";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        showToast('Prompt berhasil disalin! Silakan pilih AI di bawah.', 'success');
+                        aiLinksPanel.classList.remove('hidden');
+                        aiLinksPanel.classList.add('animate-pulse');
+                        setTimeout(() => aiLinksPanel.classList.remove('animate-pulse'), 1500);
+                    } else {
+                        showToast('Gagal menyalin prompt.', 'error');
+                    }
+                } catch (err) {
+                    showToast('Error menyalin teks.', 'error');
+                }
+
+                document.body.removeChild(textArea);
+            });
+
+            function showToast(message, type) {
+                toast.classList.remove('hidden', 'toast-enter', 'toast-exit');
+                const icon = document.getElementById('toastIcon');
+                
+                if (type === 'success') {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>';
+                } else {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>';
+                }
+                
+                document.getElementById('toastMsg').textContent = message;
+                toast.classList.add('flex', 'toast-enter');
+                
+                setTimeout(() => {
+                    toast.classList.remove('toast-enter');
+                    toast.classList.add('toast-exit');
+                    
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                        toast.classList.remove('flex', 'toast-exit');
+                    }, 300);
+                }, 3500);
+            }
+        });
+    </script>
+</body>
+</html>
